@@ -7,6 +7,7 @@
 # file containing all the patch notes: https://twisteros.com/Patches/message.txt
 
 #example patch url: https://twisteros.com/Patches/TwisterOSv1-9-1Patch.zip
+#test
 
 #twistver format: "Twister OS version 1.8.5"
 

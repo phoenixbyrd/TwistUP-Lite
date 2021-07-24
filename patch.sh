@@ -10,9 +10,6 @@
 
 #twistver format: "Twister OS version 1.8.5"
 
-#pull updates.
-git pull
-
 DIRECTORY="$(dirname "$(readlink -f "$0")")"
 echo "$DIRECTORY"
 function error {
@@ -243,8 +240,7 @@ if [ ! -f "${DIRECTORY}/no-update-patcher" ];then
   latesthash="$(git ls-remote https://github.com/phoenixbyrd/TwistUP-Lite HEAD | awk '{print $1}')"
   if [ "$localhash" != "$latesthash" ] && [ ! -z "$latesthash" ] && [ ! -z "$localhash" ];then
     echo "TwistUP-Lite is out of date. Downloading new version..."
-    gio trash "$DIRECTORY"
-    git clone https://github.com/phoenixbyrd/TwistUP-Lite "$DIRECTORY"
+    git clone https://github.com/phoenixbyrd/TwistUP-Lite
   fi
 fi
 

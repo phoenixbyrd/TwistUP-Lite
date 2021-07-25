@@ -1,5 +1,5 @@
 #!/bin/bash
-#test
+
 # list of patch versions: https://twisteros.com/Patches/latest.txt
 # version checker: https://twisteros.com/Patches/checkversion.sh
 # simple bash updater script: https://github.com/setLillie/Twister-OS-Patcher/blob/master/patch.sh
@@ -240,7 +240,10 @@ if [ ! -f "${DIRECTORY}/no-update-patcher" ];then
   latesthash="$(git ls-remote https://github.com/phoenixbyrd/TwistUP-Lite HEAD | awk '{print $1}')"
   if [ "$localhash" != "$latesthash" ] && [ ! -z "$latesthash" ] && [ ! -z "$localhash" ];then
     echo "TwistUP-Lite is out of date. Downloading new version..."
-    git clone https://github.com/phoenixbyrd/TwistUP-Lite
+    gio trash "$DIRECTORY"
+    cd "$HOME"
+    git clone https://github.com/phoenixbyrd/TwistUP-Lite "$DIRECTORY"
+    cd "$DIRECTORY"
   fi
 fi
 
